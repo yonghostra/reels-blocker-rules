@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "updated": "2026-11-02",
+  "sites": {
+    "instagram": {
+      "hosts": [
+        "instagram.com"
+      ],
+      "features": {
+        "ig_reels": {
+          "hide": [
+            "a[href='/reels/']",
+            "a[href^='/reels/']"
+          ],
+          "hideAncestor": [
+            {
+              "selector": "article a[href^='/reel/']",
+              "closest": "article"
+            }
+          ],
+          "redirect": [
+            {
+              "match": "^/reels?(/|$)",
+              "to": "/"
+            }
+          ]
+        },
+        "ig_explore": {
+          "hide": [
+            "a[href='/explore/']",
+            "a[href^='/explore/']"
+          ],
+          "redirect": [
+            {
+              "match": "^/explore(/|$)",
+              "to": "/"
+            }
+          ]
+        },
+        "ig_suggested": {
+          "hideText": [
+            {
+              "selector": "article",
+              "text": "Suggested for you"
+            }
+          ]
+        },
+        "ig_stories": {
+          "hideAncestor": [
+            {
+              "selector": "a[href^='/stories/']",
+              "closest": "ul, section"
+            }
+          ]
+        }
+      }
+    },
+    "youtube": {
+      "hosts": [
+        "youtube.com"
+      ],
+      "features": {
+        "yt_shorts": {
+          "hide": [
+            "a[href^='/shorts']",
+            "ytd-guide-entry-renderer:has(a[title='Shorts'])",
+            "ytd-mini-guide-entry-renderer:has(a[title='Shorts'])",
+            "ytm-pivot-bar-item-renderer:has(.pivot-shorts)"
+          ],
+          "hideItems": [
+            "ytm-reel-shelf-renderer",
+            "ytd-reel-shelf-renderer",
+            "ytd-rich-shelf-renderer[is-shorts]",
+            "grid-shelf-view-model",
+            "ytm-shorts-lockup-view-model",
+            "ytd-reel-item-renderer",
+            "ytm-rich-item-renderer:has(a[href^='/shorts'])",
+            "ytd-rich-item-renderer:has(a[href^='/shorts'])",
+            "ytm-video-with-context-renderer:has(a[href^='/shorts'])",
+            "ytd-video-renderer:has(a[href^='/shorts'])"
+          ],
+          "redirect": [
+            {
+              "match": "^/shorts/([A-Za-z0-9_-]{6,})",
+              "to": "/watch?v=$1"
+            },
+            {
+              "match": "^/shorts/?$",
+              "to": "/"
+            }
+          ],
+          "hideText": [
+            {
+              "selector": "ytm-pivot-bar-item-renderer, ytm-pivot-bar-renderer div, ytm-pivot-bar-renderer a, ytm-pivot-bar-renderer button, ytm-pivot-bar-renderer [role='tab'], ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer",
+              "text": "Shorts",
+              "exact": true
+            }
+          ]
+        }
+      }
+    },
+    "tiktok": {
+      "hosts": [
+        "tiktok.com"
+      ],
+      "features": {
+        "tt_feed": {
+          "hide": [
+            "a[href='/foryou']"
+          ],
+          "hideItems": [
+            "[data-e2e='recommend-list-item-container']",
+            "[data-e2e='feed-video']",
+            "#main-content-homepage_hoc"
+          ],
+          "banner": "For You feed hidden by Reels Blocker"
+        }
+      }
+    },
+    "facebook": {
+      "hosts": [
+        "facebook.com"
+      ],
+      "features": {
+        "fb_reels": {
+          "hide": [
+            "a[href^='/reels/']",
+            "a[href^='/reel/']",
+            "a[aria-label='Reels']"
+          ],
+          "hideAncestor": [
+            {
+              "selector": "div[role='article'] a[href^='/reel/']",
+              "closest": "div[role='article']"
+            }
+          ],
+          "redirect": [
+            {
+              "match": "^/reels?(/|$)",
+              "to": "/"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
